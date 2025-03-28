@@ -29,11 +29,6 @@ jobs:
           sarif-report: 42Crunch_AuditReport_${{ github.run_id }}.SARIF
           export-as-pdf: 42Crunch_AuditReport_${{ github.run_id }}.pdf
           audit-reports-dir: ${{ github.workspace }}/reports
-      - name: Upload SARIF file
-        uses: github/codeql-action/upload-sarif@v3
-        with:
-          # Path to SARIF file relative to the root of the repository
-          sarif_file: 42Crunch_AuditReport_${{ github.run_id }}.SARIF
       - name: save-audit-report
         if: always()        
         uses: actions/upload-artifact@v4
