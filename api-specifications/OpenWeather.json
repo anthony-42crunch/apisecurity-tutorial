@@ -2,7 +2,7 @@
   "openapi": "3.0.1",
   "info": {
     "title": "OpenWeather Map",
-    "version": "1.1"
+    "version": "1.2"
   },
   "servers": [
     {
