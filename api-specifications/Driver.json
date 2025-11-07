@@ -3,7 +3,7 @@
   "info": {
     "title": "drivercategorisation.fia.com",
     "version": "1.0",
-    "description": ""
+    "description": "This is a sample API contract for the F1 Drivers Registration Portal"
   },
   "servers": [
     {
@@ -13,6 +13,7 @@
   "paths": {
     "/api/users/{userId}": {
       "put": {
+        "description": "update a users account settings",
         "parameters": [
           {
             "in": "path",
@@ -53,23 +54,6 @@
     "schemas": {
       "UserResponse": {
         "type": "object",
-        "required": [
-          "id",
-          "firstName",
-          "lastName",
-          "nickName",
-          "country",
-          "gender",
-          "roles",
-          "filters",
-          "secondaryEmail",
-          "keepNamePrivate",
-          "status",
-          "nickName2",
-          "token",
-          "email",
-          "birthDate"
-        ],
         "properties": {
           "id": {
             "type": "integer"
@@ -166,11 +150,7 @@
       "UserRequest": {
         "type": "object",
         "required": [
-          "lastName",
-          "id",
-          "nickName",
-          "firstName",
-          "email"
+          "id"
         ],
         "properties": {
           "id": {
