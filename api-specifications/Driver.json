@@ -1,0 +1,236 @@
+{
+  "openapi": "3.0.3",
+  "info": {
+    "title": "drivercategorisation.fia.com",
+    "version": "1.0",
+    "description": ""
+  },
+  "servers": [
+    {
+      "url": "https://6rqkj.wiremockapi.cloud"
+    }
+  ],
+  "paths": {
+    "/api/users/{userId}": {
+      "put": {
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/UserRequest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/UserResponse"
+                }
+              }
+            },
+            "description": "Update user response"
+          }
+        }
+      },
+      "parameters": [
+        {
+          "in": "path",
+          "name": "userId",
+          "schema": {
+            "type": "string",
+            "pattern": "^[A-Za-z0-9\\s,.]+$",
+            "maxLength": 255,
+            "minLength": 1
+          },
+          "required": true
+        }
+      ]
+    }
+  },
+  "components": {
+    "schemas": {
+      "UserResponse": {
+        "type": "object",
+        "required": [
+          "id",
+          "firstName",
+          "lastName",
+          "nickName",
+          "country",
+          "gender",
+          "roles",
+          "filters",
+          "secondaryEmail",
+          "keepNamePrivate",
+          "status",
+          "nickName2",
+          "token",
+          "email",
+          "birthDate"
+        ],
+        "properties": {
+          "id": {
+            "type": "integer"
+          },
+          "firstName": {
+            "type": "string",
+            "pattern": "^[A-Za-z0-9\\s,.]+$",
+            "maxLength": 255,
+            "minLength": 1
+          },
+          "lastName": {
+            "type": "string",
+            "pattern": "^[A-Za-z0-9\\s,.]+$",
+            "maxLength": 255,
+            "minLength": 1
+          },
+          "nickName": {
+            "nullable": true
+          },
+          "email": {
+            "type": "string",
+            "format": "email",
+            "pattern": "^[\\w\\-+.]+@((\\w\\-?)+\\.){1,4}[a-zA-Z0-9]{2,63}$",
+            "maxLength": 68,
+            "minLength": 5
+          },
+          "roles": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "required": [
+                "name",
+                "description",
+                "id"
+              ],
+              "properties": {
+                "id": {
+                  "type": "integer"
+                },
+                "name": {
+                  "type": "string",
+                  "pattern": "^[A-Za-z0-9\\s,.]+$",
+                  "maxLength": 255,
+                  "minLength": 1
+                },
+                "description": {
+                  "type": "string",
+                  "pattern": "^[A-Za-z0-9\\s,.]+$",
+                  "maxLength": 255,
+                  "minLength": 1
+                }
+              },
+              "additionalProperties": false
+            }
+          },
+          "token": {
+            "nullable": true
+          },
+          "gender": {
+            "nullable": true
+          },
+          "status": {
+            "type": "string",
+            "pattern": "^[A-Za-z0-9\\s,.]+$",
+            "maxLength": 255,
+            "minLength": 1
+          },
+          "country": {
+            "nullable": true
+          },
+          "filters": {
+            "type": "array",
+            "items": {}
+          },
+          "birthDate": {
+            "type": "string",
+            "format": "date",
+            "pattern": "^[0-9]{4}-(?:0[1-9]|1[0-2])-(?:0[1-9]|[12][0-9]|3[01])$",
+            "maxLength": 10,
+            "minLength": 10
+          },
+          "nickName2": {
+            "nullable": true
+          },
+          "secondaryEmail": {
+            "nullable": true
+          },
+          "keepNamePrivate": {
+            "type": "boolean"
+          }
+        },
+        "additionalProperties": false
+      },
+      "UserRequest": {
+        "type": "object",
+        "required": [
+          "lastName",
+          "id",
+          "nickName",
+          "firstName",
+          "email"
+        ],
+        "properties": {
+          "id": {
+            "type": "integer"
+          },
+          "email": {
+            "type": "string",
+            "format": "email",
+            "pattern": "^[\\w\\-+.]+@((\\w\\-?)+\\.){1,4}[a-zA-Z0-9]{2,63}$",
+            "maxLength": 68,
+            "minLength": 5
+          },
+          "roles": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "required": [
+                "name",
+                "description",
+                "id"
+              ],
+              "properties": {
+                "id": {
+                  "type": "integer"
+                },
+                "name": {
+                  "type": "string",
+                  "pattern": "^[A-Za-z0-9\\s,.]+$",
+                  "maxLength": 255,
+                  "minLength": 1
+                },
+                "description": {
+                  "type": "string",
+                  "pattern": "^[A-Za-z0-9\\s,.]+$",
+                  "maxLength": 255,
+                  "minLength": 1
+                }
+              },
+              "additionalProperties": false
+            }
+          },
+          "lastName": {
+            "type": "string",
+            "pattern": "^[A-Za-z0-9\\s,.]+$",
+            "maxLength": 255,
+            "minLength": 1
+          },
+          "nickName": {
+            "nullable": true
+          },
+          "firstName": {
+            "type": "string",
+            "pattern": "^[A-Za-z0-9\\s,.]+$",
+            "maxLength": 255,
+            "minLength": 1
+          }
+        },
+        "additionalProperties": false
+      }
+    }
+  }
+}
