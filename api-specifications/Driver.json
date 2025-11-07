@@ -13,6 +13,18 @@
   "paths": {
     "/api/users/{userId}": {
       "put": {
+        "parameters": [
+          {
+            "in": "path",
+            "name": "userId",
+            "schema": {
+              "type": "integer",
+              "minimum": 11111,
+              "maximum": 99999
+            },
+            "required": true
+          }
+        ],
         "requestBody": {
           "content": {
             "application/json": {
@@ -34,20 +46,7 @@
             "description": "Update user response"
           }
         }
-      },
-      "parameters": [
-        {
-          "in": "path",
-          "name": "userId",
-          "schema": {
-            "type": "string",
-            "pattern": "^[A-Za-z0-9\\s,.]+$",
-            "maxLength": 255,
-            "minLength": 1
-          },
-          "required": true
-        }
-      ]
+      }
     }
   },
   "components": {
