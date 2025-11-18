@@ -13,11 +13,13 @@
   "paths": {
     "/users/{userId}": {
       "put": {
-        "description": "Update a user profile by userId",
+        "operationId": "UpdateDriverInformation"
+        "description": "Update a driver's information",
         "parameters": [
           {
             "in": "path",
             "name": "userId",
+            "description": "The drivers registered user ID",
             "schema": {
               "type": "integer",
               "maximum": 99999,
